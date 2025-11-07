@@ -1,0 +1,382 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #222;
+}
+
+#app {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+section {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+section h2 {
+  margin-top: 0;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+label {
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 6px 12px;
+  border: none;
+  background-color: #4caf50;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button.delete {
+  background-color: #e53935;
+}
+
+button.delete:hover {
+  background-color: #c62828;
+}
+
+.info-panel {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+
+#attacker-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "sprite stats"
+    "sprite evs";
+  gap: 15px;
+  align-items: start;
+}
+
+#attacker-sprite {
+  grid-area: sprite;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges; 
+}
+
+#attacker-info .stats {
+  grid-area: stats;
+}
+
+#attacker-info .ev-controls {
+  grid-area: evs;
+}
+
+.ev-display {
+  font-size: 0.8rem;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+#import-export {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+#enemy-import-area {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  font-family: monospace;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+#moves-import-export {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+#moves-import-area {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  font-family: monospace;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.info-panel.hidden {
+  display: none;
+}
+
+.ev-controls, #enemy-ev-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.ev-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ev-control input[type="range"] {
+  flex: 1;
+}
+
+.enemy-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.enemy-card {
+  flex: 1 1 250px;
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.enemy-card img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.enemy-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.enemy-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.enemy-card button.remove {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: #e53935;
+  border: none;
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.enemy-card button.remove:hover {
+  background-color: #c62828;
+}
+
+.move-row {
+  margin-bottom: 8px;
+}
+
+.move-row:last-child {
+  margin-bottom: 0;
+}
+
+.move-name {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.move-info {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.damage-bar-container {
+  height: 12px;
+  background-color: #a5a5a5;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.damage-bar-min,
+.damage-bar-max {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 4px;
+}
+
+.damage-bar-min {
+  background-color: #81c784;
+  z-index: 2;
+}
+
+.damage-bar-max {
+  background-color: #cede3b;
+  z-index: 1;
+}
+
+.move-row span.percentage {
+  font-size: 0.8rem;
+  margin-left: 4px;
+}
+
+#moves-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.move-input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.move-input-row input[type="text"] {
+  flex: 1;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (max-width: 600px) {
+  .enemy-card {
+    flex: 1 1 100%;
+  }
+}
+
+#attacker-name {
+  position: relative;
+  z-index: 2;
+}
+
+#toggle-all-plus {
+  transform: scale(1.2);
+  margin-right: 6px;
+}
+
+.stats {
+  width: 100%;
+  max-width: 400px;
+  font-size: 0.9rem;
+}
+
+.stat-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.stat-row .label {
+  width: 70px;
+  font-weight: bold;
+}
+
+.stat-row .value {
+  width: 32px;
+  text-align: right;
+}
+
+.stat-row .bar {
+  flex: 1;
+  height: 10px;
+  background-color: #eee;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.stat-row .fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.fill.hp  { background-color: #4caf50; }
+.fill.atk { background-color: #8bc34a; }
+.fill.def { background-color: #fbc02d; }
+.fill.spa { background-color: #4fc3f7; }
+.fill.spd { background-color: #ba68c8; }
+.fill.spe { background-color: #ff7043; }
+
+.stat-row.total {
+  margin-top: 10px;
+  font-weight: bold;
+  border-top: 1px solid #ddd;
+  padding-top: 6px;
+}
+
+#setup-import-area {
+  width: 95%;
+  min-height: 600px;
+  max-height: 1200px; 
+  resize: vertical;
+  padding: 8px;
+  font-family: monospace;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}

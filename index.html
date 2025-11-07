@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Legends: Z‑A Damage Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <h1>Legends: Z‑A Damage Calculator</h1>
+    <section id="attacker-section">
+      <h2>Your Pokémon</h2>
+      <div class="row">
+        <label for="attacker-name">Name:</label>
+        <input type="text" id="attacker-name" list="pokemon-list" placeholder="e.g. pikachu" />
+      </div>
+      <div id="attacker-info" class="info-panel hidden">
+        <img id="attacker-sprite" class="attacker-sprite" src="" alt="" />
+        <div class="stats">
+          <div class="stat-row">
+            <span class="label">HP</span>
+            <span class="value" id="attacker-base-hp">–</span>
+            <div class="bar"><div class="fill hp"></div></div>
+          </div>
+          <div class="stat-row">
+            <span class="label">Attack</span>
+            <span class="value" id="attacker-base-atk">–</span>
+            <div class="bar"><div class="fill atk"></div></div>
+          </div>
+          <div class="stat-row">
+            <span class="label">Defense</span>
+            <span class="value" id="attacker-base-def">–</span>
+            <div class="bar"><div class="fill def"></div></div>
+          </div>
+          <div class="stat-row">
+            <span class="label">Sp. Atk</span>
+            <span class="value" id="attacker-base-spa">–</span>
+            <div class="bar"><div class="fill spa"></div></div>
+          </div>
+          <div class="stat-row">
+            <span class="label">Sp. Def</span>
+            <span class="value" id="attacker-base-spd">–</span>
+            <div class="bar"><div class="fill spd"></div></div>
+          </div>
+          <div class="stat-row">
+            <span class="label">Speed</span>
+            <span class="value" id="attacker-base-spe">–</span>
+            <div class="bar"><div class="fill spe"></div></div>
+          </div>
+          <div class="stat-row total">
+            <span class="label">Total</span>
+            <span class="value" id="attacker-base-total">–</span>
+          </div>
+          <div class="stat-row">
+            <span class="label">Types</span>
+            <span class="value" id="attacker-types">–</span>
+          </div>
+        </div>
+        <div class="ev-controls">
+          <div class="ev-control">
+            <label for="atk-ev">Attack EVs:</label>
+            <input type="range" id="atk-ev" min="0" max="252" step="4" value="0" />
+            <span id="atk-ev-value">0</span>
+          </div>
+          <div class="ev-control">
+            <label for="spa-ev">Sp. Atk EVs:</label>
+            <input type="range" id="spa-ev" min="0" max="252" step="4" value="0" />
+            <span id="spa-ev-value">0</span>
+          </div>
+          <div class="ev-control">
+            <label for="attacker-nature">Nature:</label>
+            <select id="attacker-nature"></select>
+          </div>
+        </div>
+      </div>
+      <div id="moves-section" class="hidden">
+        <h3>Moves</h3>
+        <div class="row">
+          <label>
+            <input type="checkbox" id="toggle-all-plus" />
+            Apply Plus Mode to All Moves
+          </label>
+        </div>
+        <div id="moves-list"></div>
+        <button id="add-move">Add Move</button>
+        <button id="clear-moves" class="delete">Clear All Moves</button>
+      </div>
+    </section>
+    
+
+    <section id="enemy-section">
+      <h2>Enemies</h2>
+      <div id="enemy-form">
+        <div class="row">
+          <label for="enemy-name">Name:</label>
+          <input type="text" id="enemy-name" list="pokemon-list" placeholder="e.g. charizard" />
+          <button id="add-enemy">Add Enemy</button>
+        </div>
+        <div id="enemy-ev-controls">
+          <div class="ev-control">
+            <label for="enemy-hp-ev">HP EVs:</label>
+            <input type="range" id="enemy-hp-ev" min="0" max="252" step="4" value="0" />
+            <span id="enemy-hp-ev-value">0</span>
+          </div>
+          <div class="ev-control">
+            <label for="enemy-def-ev">Def EVs:</label>
+            <input type="range" id="enemy-def-ev" min="0" max="252" step="4" value="0" />
+            <span id="enemy-def-ev-value">0</span>
+          </div>
+          <div class="ev-control">
+            <label for="enemy-spd-ev">Sp. Def EVs:</label>
+            <input type="range" id="enemy-spd-ev" min="0" max="252" step="4" value="0" />
+            <span id="enemy-spd-ev-value">0</span>
+          </div>
+          <div class="ev-control">
+            <label for="enemy-nature">Nature:</label>
+            <select id="enemy-nature"></select>
+          </div>
+        </div>
+      </div>
+      <div id="enemy-container" class="enemy-container"></div>
+    </section>
+
+    <section id="import-export">
+      <h2>Import / Export Setup</h2>
+      <textarea id="setup-import-area" rows="8"
+        placeholder="Paste or edit setup text here..."></textarea>
+      <div class="row">
+        <button id="setup-import-btn">Import</button>
+        <button id="setup-export-btn">Export</button>
+      </div>
+    </section>
+  </div>
+
+  <datalist id="pokemon-list"></datalist>
+  <datalist id="move-list"></datalist>
+
+  <script src="app.js"></script>
+</body>
+</html>
