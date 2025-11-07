@@ -380,3 +380,21 @@ button.delete:hover {
   border: 1px solid #ccc;
   border-radius: 6px;
 }
+
+#credit-banner {
+  background-color: #f7f7f7;
+  text-align: center;
+  padding: 6px 0;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  border-bottom: 1px solid #ddd;
+}
+
+#credit-banner a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+#credit-banner a:hover {
+  text-decoration: underline;
+}

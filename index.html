@@ -8,6 +8,10 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div id="credit-banner">
+    Created by <strong>Jett Badalament-Tirrell</strong> |
+    <a href="mailto:jettbtirrell@gmail.com">Email feedback</a>
+  </div>
   <div id="app">
     <h1>Legends: Z‑A Damage Calculator</h1>
     <section id="attacker-section">
@@ -126,7 +130,49 @@
     <section id="import-export">
       <h2>Import / Export Setup</h2>
       <textarea id="setup-import-area" rows="8"
-        placeholder="Paste or edit setup text here..."></textarea>
+        placeholder="Example structure: 
+[Attacker]
+Name: dragonite
+Nature: Modest
+EVs: 0 HP / 0 Atk / 0 Def / 252 SpA / 0 SpD / 0 Spe
+
+[Moves]
+ice-beam,1
+blizzard,1
+flamethrower,1
+fire-blast,1
+thunderbolt,1
+thunder,1
+dragon-pulse,1
+draco-meteor,1
+focus-blast,1
+surf,1
+hydro-pump,1
+air-slash,1
+hurricane,1
+
+[Enemies]
+garchomp,Hardy,252,0,0
+garchomp-mega,Hardy,252,0,0
+gyarados,Hardy,252,0,0
+gyarados-mega,Hardy,252,0,0
+metagross,Hardy,252,0,0
+metagross-mega,Hardy,252,0,0
+charizard,Hardy,252,0,0
+charizard-mega-x,Hardy,252,0,0
+charizard-mega-y,Hardy,252,0,0
+glaceon,Hardy,252,0,0
+clefable,Hardy,252,0,0
+clefable-mega,Hardy,252,0,0
+gallade,Hardy,252,0,0
+gallade-mega,Hardy,252,0,0
+pangoro,Hardy,252,0,0
+dragonite,Hardy,252,0,0
+dragonite-mega,Hardy,252,0,0
+skarmory,Hardy,252,0,0
+skarmory-mega,Hardy,252,0,0
+greninja,Hardy,252,0,0
+greninja-mega,Hardy,252,0,0"></textarea>
       <div class="row">
         <button id="setup-import-btn">Import</button>
         <button id="setup-export-btn">Export</button>
